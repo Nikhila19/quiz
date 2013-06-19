@@ -1,0 +1,17 @@
+<h2> Questions/answers</h2>
+
+@questions.each do |question|
+ if question.type == 'matching'
+ 	mqs = question.matchingquestions
+ 	mas = question.matchinganswers
+ 	<h3>Questions</h3>
+ 	mqs.each do |mq|
+ 	  mq.content<br/>
+ 	end
+ 	<table>
+ 	mas.each do |ma|
+ 	<tr>
+ 	  <td>ma.option</td><td>ma.content</td>
+ 	</tr>
+ 	end  </table>
+ end

@@ -1,0 +1,13 @@
+<%=form_for @question do |q| %>
+	<%= q.hidden_field :question_id, :value => q.id %>
+	<%=if q.type == 'matching'%>
+		<%= render @question.matching_questions%>
+	<%else%>
+		<%= @question.question %>
+		<%= q.radio_button, :optiona, @question.optiona %>
+		<%= q.radio_button, :optionb, @question.optionb %>
+		<%= q.radio_button, :optionc, @question.optionc %>
+		<%= q.radio_button, :optiond, @question.optiond %>
+	<%end%>
+
+<% end %>

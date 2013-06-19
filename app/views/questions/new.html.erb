@@ -1,0 +1,19 @@
+<h2>Create a new question </h2>
+
+<%=form_for @question do |q_form| %>
+    <%= q_form.select :type, ['matching', 'true/false', 'multiple choice'] %><br/><br/>
+	<%= q_form.text_area :name, :size => "60x2" %><br/>
+	<fieldset>
+		<%= q_form.fields_for :matchingquestions do |mq_form|%>
+			<%= render 'matchingquestions_form', f: mq_form %>
+		<%end%>
+		
+		<%= q_form.fields_for :matchinganswers do |ma|%>
+			<%= render 'matchinganswers_form', f: ma %>
+		<%end%>
+	</fieldset>
+	<%= q_form.submit "Create Question"%>
+	
+  
+<%end %>
+
